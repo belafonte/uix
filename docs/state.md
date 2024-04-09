@@ -6,7 +6,7 @@ UIx is using [React's state hook](https://reactjs.org/docs/hooks-state.html#hook
 (defui form []
   (let [[value set-value!] (uix.core/use-state "")]
     ($ :input {:value value
-               :on-change #(set-value! value (.. % -target -value))})))
+               :on-change #(set-value! (.. % -target -value))})))
 ```
 
 In some React wrappers state is represented using the `Atom` datatype that has has `reset!` and `swap!` operations. We take a similar naming approach and suffix state updating function with a bang `!` denoting that the operation is mutating a value.
